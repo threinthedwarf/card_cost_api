@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: card_cost_api_db
+      POSTGRES_USER: cardCostUser
+      POSTGRES_PASSWORD: cardCostPassword
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5434:5434"
+
+  app:
+    build: .
+    container_name: card_cost_api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/card_cost_api_db
+      SPRING_DATASOURCE_USERNAME: cardCostUser
+      SPRING_DATASOURCE_PASSWORD: cardCostPassword
+    depends_on:
+      - postgres
+    ports:
+      - "8686:8686"
+
+volumes:
+  db-data:
