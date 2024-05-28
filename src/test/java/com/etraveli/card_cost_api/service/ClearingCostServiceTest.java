@@ -2,7 +2,6 @@ package com.etraveli.card_cost_api.service;
 
 import com.etraveli.card_cost_api.model.ClearingCost;
 import com.etraveli.card_cost_api.repository.ClearingCostRepository;
-import com.etraveli.card_cost_api.service.ClearingCostService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

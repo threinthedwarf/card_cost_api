@@ -67,7 +67,7 @@ public class PaymentsCardCostCalculationServiceTest {
             paymentsCardCostCalculationService.calculateCost(request);
         });
 
-        assertEquals("Card number should be 8-19 digits.", exception.getMessage());
+        assertEquals("Invalid card number.", exception.getMessage());
     }
 
     @Test

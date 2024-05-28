@@ -17,7 +17,7 @@ public class PaymentsCardCostCalculationService {
 
     public PaymentsCardCostResponse calculateCost(PaymentsCardCostRequest request) {
 
-        int iin = CardNumberUtils.extractIinFromCardNumber(request.getCardNumber());
+        int iin = CardNumberExtractor.extractIinFromCardNumber(request.getCardNumber());
 
         ExternalApiResponse externalApiResponse = externalApiIntegrationService.getExternalApiResponse(iin);
 

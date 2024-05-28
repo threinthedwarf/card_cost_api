@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/card-cost-api/rest/v1/clearing-costs")
 @RequiredArgsConstructor
-public class ClearingCostController  extends BasicController {
+public class ClearingCostController  extends BaseController {
 
     private final ClearingCostService clearingCostService;
 
@@ -35,7 +35,7 @@ public class ClearingCostController  extends BasicController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping
+    @PutMapping(value = "/update")
     public ResponseEntity<ClearingCost> updateClearingCost(@RequestBody ClearingCost clearingCost) {
         ClearingCost updatedClearingCost = clearingCostService.updateClearingCost(clearingCost);
         return new ResponseEntity<>(updatedClearingCost, HttpStatus.OK);
